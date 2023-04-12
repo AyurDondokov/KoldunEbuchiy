@@ -12,6 +12,7 @@ public class ActionObj : MonoBehaviour
     
     public UnityEvent Action;
     public bool isUsable;
+    [SerializeField] private bool isDestroy;
 
     public void InvokeAction()
     {
@@ -19,6 +20,9 @@ public class ActionObj : MonoBehaviour
         {
             Action.Invoke();
             isUsed = !isInfinity;
+            if(isDestroy){
+                Destroy(gameObject);
+            }
         }
     }
 }
