@@ -30,22 +30,26 @@ public class Bullet : MonoBehaviour
         rb.AddForce(direction * speed);
     }
 
-    void OnCollisionEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isFriendly){
-            if (collider.GetComponent<Enemy>()){
-                collider.GetComponent<Enemy>().TakeDamage(damage);
+        if (isFriendly)
+        {
+            if (collision.gameObject.GetComponent<Enemy>())
+            {
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
                 if (isDestroy)
                     Destroy(gameObject);
             }
         }
-        else{
-            if (collider.GetComponent<Player>()){
-                collider.GetComponent<Player>().TakeDamage(damage);
+        else
+        {
+            if (collision.gameObject.GetComponent<Player>())
+            {
+                collision.gameObject.GetComponent<Player>().TakeDamage(damage);
                 if (isDestroy)
                     Destroy(gameObject);
 
             }
-        }  
+        }
     }
 }

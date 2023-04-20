@@ -6,6 +6,14 @@ public class CameraSkript : MonoBehaviour
 {
     private Transform player;
 
+    private float CameraSizeX = 14;
+    private float CameraSizeY = 8;
+
+    [SerializeField] private float Xmax;
+    [SerializeField] private float Xmin;
+    [SerializeField] private float Ymax;
+    [SerializeField] private float Ymin;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -14,9 +22,15 @@ public class CameraSkript : MonoBehaviour
     void LateUpdate()
     {
         Vector3 temp = transform.position;
-        temp.x = player.position.x;
-        temp.y = player.position.y;
 
+        if (player.position.x + CameraSizeX < Xmax &&
+                player.position.x - CameraSizeX > Xmin)
+            temp.x = player.position.x;
+
+        if (player.position.y + CameraSizeY < Ymax &&
+                player.position.y - CameraSizeY > Ymin)
+            temp.y = player.position.y;
+        
         transform.position = temp;
     }
 }
