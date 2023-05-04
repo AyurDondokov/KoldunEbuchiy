@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
-    private int health;
+    [SerializeField] protected int maxHealth;
+    protected int health;
 
-    private int damage;
+    protected int damage;
 
     public void SetValues(int newHealth, int newDamage) 
     {

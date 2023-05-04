@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    public int startWeaponID;
+    [SerializeField] private Weapon[] WeaponsList;
+
+    private void Start()
     {
-        
+        WeaponsList[startWeaponID].LevelUp();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
