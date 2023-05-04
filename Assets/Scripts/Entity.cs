@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
 
     protected int damage;
 
+    protected Animator an{ get{ return GetComponent<Animator>(); } }
+
     public void SetValues(int newHealth, int newDamage) 
     {
         maxHealth = newHealth;
@@ -21,7 +23,7 @@ public class Entity : MonoBehaviour
     {
         health -= inDamage;
         if (health <= 0)
-            Die();
+            an.SetTrigger("death");
     }
 
     public void Die() 
