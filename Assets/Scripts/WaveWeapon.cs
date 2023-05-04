@@ -21,8 +21,4 @@ public class WaveWeapon : Weapon
         Instantiate(damageWave, transform.position, Quaternion.identity).GetComponent<DamageWave>().Attack(range, TargetLayer, damage);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawSphere(transform.position, 3);
-    }
 }

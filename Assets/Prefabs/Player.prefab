@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   startWeaponID: 0
-  WeaponsList: []
+  WeaponsList:
+  - {fileID: 4162831861185725552}
 --- !u!114 &4567604999581224112
 MonoBehaviour:
   m_ObjectHideFlags: 0
