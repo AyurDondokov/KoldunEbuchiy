@@ -30,6 +30,7 @@ public class RandomSpawner : MonoBehaviour
             enemyCount = 5;
             Debug.Log("Spawn");
             for (int i = 0; i< enemyCount; i++){
+<<<<<<< Updated upstream
                 float rand_x = Random.Range(spawnPoint.position.x - volume.x, spawnPoint.position.x + volume.x);
                 float rand_y = Random.Range(spawnPoint.position.y - volume.y, spawnPoint.position.y + volume.y);
                 rand_x  = rand_x > spawnPoint.position.x ? rand_x+15 : rand_x-15;
@@ -37,6 +38,10 @@ public class RandomSpawner : MonoBehaviour
                 
                 Vector2 pos = new Vector2(rand_x, rand_y);
                 GameObject obj = Instantiate(enemyPrefabs[0], pos, Quaternion.identity);
+=======
+                Vector2 pos = new Vector2(Random.Range(spawnPoint.position.x - volume.x, spawnPoint.position.x + volume.x), Random.Range(spawnPoint.position.y - volume.y, spawnPoint.position.y+volume.y));
+                GameObject obj = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], pos, Quaternion.identity);
+>>>>>>> Stashed changes
                 
             } 
             yield return new WaitForSeconds(spawnDelay);  
