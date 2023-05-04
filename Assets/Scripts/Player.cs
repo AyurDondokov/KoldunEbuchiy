@@ -10,6 +10,8 @@ public class Player : Entity
     private void Start()
     {
         WeaponsList[startWeaponID].LevelUp();
+
+        health = maxHealth;
     }
 
 }

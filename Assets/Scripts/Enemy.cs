@@ -13,6 +13,8 @@ public class Enemy : Entity
         player = FindObjectOfType<Player>();
 
         moveObj = GetComponent<MoveObject>();
+
+        health = maxHealth;
     }
 
     private void Update()
