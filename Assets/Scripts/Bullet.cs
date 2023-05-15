@@ -12,7 +12,12 @@ public class Bullet : MonoBehaviour
     public float speed = 50f;
     public int damage = 1;
 
-    public void GetValues(Vector2 dir, float Nspeed, int Ndamage)
+    [SerializeField] float lifeTime;
+    protected float currentLifeTime;
+
+    [SerializeField] AnimationCurve SpeedCurve;
+
+    public void TakeValues(Vector2 dir, float Nspeed, int Ndamage)
     {
         direction = dir;
         speed = Nspeed;
@@ -24,13 +29,19 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
+    private void Update()
+    {
+        if (currentLifeTime <= lifeTime)
+            currentLifeTime += Time.deltaTime;
+        else
+            Destroy(gameObject);
+    }
     private void FixedUpdate()
     {
-        rb.AddForce(direction * speed);
+        rb.AddForce(direction * speed * SpeedCurve.Evaluate(currentLifeTime));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isFriendly)
         {

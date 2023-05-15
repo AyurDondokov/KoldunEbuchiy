@@ -15,9 +15,14 @@ public class Weapon : MonoBehaviour
     public void LevelUp() 
     {
         level++;
+        OtherValues();
         damage = DamageList[level];
         cooldown = CooldownList[level];
-        OtherValues();
+    }
+
+    public int GetLevel() 
+    {
+        return level;
     }
 
     protected IEnumerator AttackTimer() 

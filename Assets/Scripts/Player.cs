@@ -11,7 +11,9 @@ public class Player : Entity
     private void Start()
     {
         WeaponsList[startWeaponID].LevelUp();
-
+        foreach (Weapon weapon in WeaponsList)
+            weapon.gameObject.SetActive((weapon.GetLevel() > 0));
+                
         health = maxHealth;
     }
 
