@@ -1,14 +1,20 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
+public class EnemyPool
+{
+    public GameObject[] enemies;
+}
 public class RandomSpawner : MonoBehaviour
 {
     public float spawnDelay;
     public int enemyCount;
     public Transform spawnPoint;
-    public GameObject[] enemyPrefabs;
+    public EnemyPool[] enemyPrefabs;
     public Vector2 volume;
+    public int diflvl = 0;
     
     void Start()
     {
@@ -34,7 +40,7 @@ public class RandomSpawner : MonoBehaviour
                 rand_y  = rand_y > spawnPoint.position.y ? rand_y+8 : rand_y-8;
 
                 Vector2 pos = new Vector2(rand_x, rand_y);
-                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], pos, Quaternion.identity);
+                Instantiate(enemyPrefabs[diflvl].enemies[Random.Range(0, enemyPrefabs.Length)], pos, Quaternion.identity);
             } 
             yield return new WaitForSeconds(spawnDelay);  
         }
