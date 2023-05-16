@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected int maxHealth;
     protected int health;
     [SerializeField] protected bool healthIsVisible;
-    protected float barHeight = 15f;
+    protected float barHeight = 11f;
     protected Color barColor = Color.green;
     protected int damage;
 
@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 
         damage = newDamage;
     }
+
     void OnGUI()
     {
         if (healthIsVisible) 
@@ -33,9 +34,9 @@ public class Entity : MonoBehaviour
 
             GUI.color = barColor;
             // Вычисляем позицию полоски здоровья
-            float barWidth = ((float)health / maxHealth) * 80f;
+            float barWidth = ((float)health / maxHealth) * 75f;
             float barX = screenPos.x - (barWidth / 2);
-            float barY = Screen.height - screenPos.y - barHeight + 60f;
+            float barY = Screen.height - screenPos.y - barHeight + 40f;
 
             // Отображаем полоску здоровья
             GUI.DrawTexture(new Rect(barX, barY, barWidth, barHeight), Texture2D.whiteTexture);
