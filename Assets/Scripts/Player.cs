@@ -6,6 +6,7 @@ public class Player : Entity
 {
     public int startWeaponID;
     [SerializeField] private Weapon[] WeaponsList;
+    private int PlayerXP = 0;
 
     private void Start()
     {
@@ -16,4 +17,15 @@ public class Player : Entity
         health = maxHealth;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.GetComponent<Crystal>()){
+           addXP(other.gameObject.GetComponent<Crystal>().xp);
+           Destroy(other.gameObject);
+        }
+    }
+
+    private void addXP(int xp){
+        PlayerXP += xp;
+        Debug.Log(PlayerXP);
+    }
 }

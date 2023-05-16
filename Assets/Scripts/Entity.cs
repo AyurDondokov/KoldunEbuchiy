@@ -11,6 +11,8 @@ public class Entity : MonoBehaviour
     protected Color barColor = Color.green;
     protected int damage;
 
+    public GameObject XPcrystal;
+
     protected Animator an{ get{ return GetComponent<Animator>(); } }
 
     void Start(){
@@ -46,12 +48,24 @@ public class Entity : MonoBehaviour
     public void TakeDamage(int inDamage) 
     {
         health -= inDamage;
-        if (health <= 0)
+        if (health <= 0){
             an.SetTrigger("death");
+        }
     }
 
-    public void Die() 
-    {
+    public void Die(){
         Destroy(gameObject);
+        dropXP();
+    }
+
+    private void dropXP() 
+    {
+        int crystalsCount = Random.Range(1, 6);
+        for (int i=0; i<crystalsCount; i++){
+            float pos_x = transform.position.x + Random.Range(1f, 2f);
+            float pos_y = transform.position.y + Random.Range(1f, 2f);
+            Vector2 pos = new Vector2(pos_x, pos_y);
+            Instantiate(XPcrystal, pos, Quaternion.Euler(0,0,Random.Range(0,181)));
+        }
     }
 }
