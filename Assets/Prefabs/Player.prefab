@@ -73,18 +73,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  chanceChest: 0
   isDead: 0
   healthIsVisible: 1
-  XPcrystal: {fileID: 0}
-  chest: {fileID: 0}
+  damage: 0
+  itemList: []
   startWeaponID: 1
   WeaponsList:
   - {fileID: 4162831861185725552}
   - {fileID: 3122892896936627353}
   - {fileID: 6957442614723412215}
   - {fileID: 1263453455222414942}
+  XPtoNextLVL: 75
   xpBar: {fileID: 0}
+  upgradeSystem: {fileID: 0}
 --- !u!114 &4567604999581224112
 MonoBehaviour:
   m_ObjectHideFlags: 0
