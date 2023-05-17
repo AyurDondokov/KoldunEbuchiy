@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
     public int startWeaponID;
     [SerializeField] private Weapon[] WeaponsList;
     private int PlayerXP = 0;
+    private int XPtoNextLVL = 75;
+    [SerializeField] Image xpBar;
 
     private void Start()
     {
@@ -26,6 +29,17 @@ public class Player : Entity
 
     private void addXP(int xp){
         PlayerXP += xp;
-        Debug.Log(PlayerXP);
+        if (PlayerXP >= XPtoNextLVL)
+            levelUP();
+        xpBar.fillAmount = PlayerXP / (float)XPtoNextLVL;
+    }
+
+    private void levelUP(){
+        PlayerXP -= XPtoNextLVL;
+        XPtoNextLVL = (int)(XPtoNextLVL * 1.3f);
+        maxHealth = (int)(maxHealth * 1.2f);
+        health += (int)(maxHealth * 0.15f);
+
+        
     }
 }
