@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class Player : Entity
 {
     public int startWeaponID;
-    [SerializeField] private Weapon[] WeaponsList;
+    [SerializeField] public Weapon[] WeaponsList;
     private int PlayerXP = 0;
-    private int XPtoNextLVL = 75;
+    [SerializeField] private int XPtoNextLVL = 75;
     [SerializeField] Image xpBar;
+    [SerializeField] private UpgradeSystem upgradeSystem;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class Player : Entity
         maxHealth = (int)(maxHealth * 1.2f);
         health += (int)(maxHealth * 0.15f);
 
-        
+        upgradeSystem.TogglePanel();
+        upgradeSystem.RandomizeButtons();
     }
 }

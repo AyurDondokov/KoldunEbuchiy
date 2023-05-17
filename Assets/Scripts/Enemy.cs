@@ -24,20 +24,23 @@ public class Enemy : Entity
 
     private void Update()
     {
-        Vector2 dir = player.transform.position - transform.position;
-        if (!isDead)
-            moveObj.MoveTo(dir.normalized);
-
-        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-        if (distanceToPlayer <= AttackDistance)
+        if (player) 
         {
-            if (currentAttackTime > AttackCooldown)
+            Vector2 dir = player.transform.position - transform.position;
+            if (!isDead)
+                moveObj.MoveTo(dir.normalized);
+
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            if (distanceToPlayer <= AttackDistance)
             {
-                player.TakeDamage(damage);
-                currentAttackTime = 0;
+                if (currentAttackTime > AttackCooldown)
+                {
+                    player.TakeDamage(damage);
+                    currentAttackTime = 0;
+                }
+                else
+                    currentAttackTime += Time.deltaTime;
             }
-        else
-            currentAttackTime += Time.deltaTime;
         }
     }
 

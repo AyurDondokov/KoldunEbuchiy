@@ -14,10 +14,12 @@ public class Weapon : MonoBehaviour
 
     public void LevelUp() 
     {
+        gameObject.SetActive(true);
         level++;
         OtherValues();
         damage = DamageList[level];
         cooldown = CooldownList[level];
+        StartCoroutine(AttackTimer());
     }
 
     public int GetLevel() 
@@ -33,12 +35,6 @@ public class Weapon : MonoBehaviour
             yield return new WaitForSeconds(cooldown);
         }
     }
-
-    protected void Start()
-    {
-        StartCoroutine(AttackTimer());
-    }
-
     protected virtual void Attack()
     {
         // Attack script
