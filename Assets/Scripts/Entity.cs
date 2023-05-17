@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Item{
+    public GameObject obj;
+    public int maxCount;
+    public int chance;
+}
+
 public class Entity : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
-    [SerializeField] protected int chanceChest;
     protected int health;
     public bool isDead;
     [SerializeField] protected bool healthIsVisible;
@@ -13,8 +19,7 @@ public class Entity : MonoBehaviour
     protected Color barColor = Color.green;
     [SerializeField] protected int damage;
 
-    public GameObject XPcrystal;
-    public GameObject chest;
+    public Item[] itemList;
 
     protected Animator an{ get{ return GetComponent<Animator>(); } }
 
@@ -59,28 +64,20 @@ public class Entity : MonoBehaviour
 
     public void Die(){
         Destroy(gameObject);
-        if (XPcrystal)
-            dropXP();
-        if (chest)
-            dropChest();
+        drop();
     }
 
-    private void dropXP() 
-    {
-        int crystalsCount = Random.Range(1, 6);
-        for (int i=0; i<crystalsCount; i++){
-            float pos_x = transform.position.x + Random.Range(1f, 2f);
-            float pos_y = transform.position.y + Random.Range(1f, 2f);
-            Vector2 pos = new Vector2(pos_x, pos_y);
-            Instantiate(XPcrystal, pos, Quaternion.Euler(0,0,Random.Range(0,181)));
-        }
-    }
-
-    private void dropChest()
-    {
-        if(Random.Range(1, chanceChest) == 1)
-        {
-            Instantiate(chest, transform.position, Quaternion.Euler(0,0,0));
+    private void drop(){
+        foreach(Item item in itemList){
+            int Count = Random.Range(1, item.maxCount);
+            if(Random.Range(1, item.chance) == 1){
+                for (int i=0; i<Count; i++){
+                    float pos_x = transform.position.x + Random.Range(1f, 2f);
+                    float pos_y = transform.position.y + Random.Range(1f, 2f);
+                    Vector2 pos = new Vector2(pos_x, pos_y);
+                    Instantiate(item.obj, pos, Quaternion.identity);
+                }
+            }
         }
     }
 }
