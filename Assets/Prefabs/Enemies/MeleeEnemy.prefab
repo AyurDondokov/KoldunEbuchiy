@@ -220,22 +220,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  chanceChest: 1000
   isDead: 0
   healthIsVisible: 0
   damage: 1
-  AttackDistance: 1.5
-  AttackCooldown: 1
   itemList:
   - obj: {fileID: 282531931121204578, guid: 6fbc652cc66badf44a4abdafe5a86634, type: 3}
-    count: 1
-    chance: 1000
-  - obj: {fileID: 282531931121204578, guid: 9c1be975f03960e4682c98070b56378f, type: 3}
-    count: 1
+    maxCount: 1
     chance: 500
+  - obj: {fileID: 282531931121204578, guid: 9c1be975f03960e4682c98070b56378f, type: 3}
+    maxCount: 1
+    chance: 100
   - obj: {fileID: 1384570904514686497, guid: d6088fd87a74e2b4da92b8ade9666559, type: 3}
-    count: 6
+    maxCount: 6
     chance: 1
+  AttackDistance: 1.5
+  AttackCooldown: 1
 --- !u!114 &5072117949922706947
 MonoBehaviour:
   m_ObjectHideFlags: 0

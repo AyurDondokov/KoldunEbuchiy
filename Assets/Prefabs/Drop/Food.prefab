@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3182131759306559283}
   - component: {fileID: 5039514774367980485}
   - component: {fileID: 8924468797570859017}
+  - component: {fileID: -1542036679519971096}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -51,7 +52,19 @@ MonoBehaviour:
   dialogIcon: {fileID: 0}
   Action:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1542036679519971096}
+        m_TargetAssemblyTypeName: Food, Assembly-CSharp
+        m_MethodName: regenerationHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isUsable: 1
   isDestroy: 1
 --- !u!61 &5039514774367980485
@@ -101,6 +114,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1542036679519971096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282531931121204578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59aa950d71fb3c4cac5d5ba6680e1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regeneration: 10
 --- !u!1 &5948884495138357273
 GameObject:
   m_ObjectHideFlags: 0

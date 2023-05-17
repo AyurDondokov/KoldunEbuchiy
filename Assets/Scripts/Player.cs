@@ -44,4 +44,8 @@ public class Player : Entity
         upgradeSystem.TogglePanel();
         upgradeSystem.RandomizeButtons();
     }
+
+    public void healByFood(int FoodHeal){
+        health = health + FoodHeal < maxHealth ? health + FoodHeal : maxHealth;
+    }
 }
