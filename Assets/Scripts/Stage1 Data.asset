@@ -15,5 +15,5 @@ MonoBehaviour:
   stageEvent:
   - stageEventType: 1
     objectToSpawn: {fileID: 0}
-    time: 5
+    time: 100
     lvl: 1
