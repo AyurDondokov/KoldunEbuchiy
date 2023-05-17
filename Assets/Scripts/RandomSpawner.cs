@@ -40,7 +40,7 @@ public class RandomSpawner : MonoBehaviour
                 rand_y  = rand_y > spawnPoint.position.y ? rand_y+8 : rand_y-8;
 
                 Vector2 pos = new Vector2(rand_x, rand_y);
-                Instantiate(enemyPrefabs[diflvl].enemies[Random.Range(0, enemyPrefabs.Length)], pos, Quaternion.identity);
+                Instantiate(enemyPrefabs[diflvl].enemies[Random.Range(0, enemyPrefabs[diflvl].enemies.Length)], pos, Quaternion.identity);
             } 
             yield return new WaitForSeconds(spawnDelay);  
         }

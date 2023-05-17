@@ -220,8 +220,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  chanceChest: 1
   healthIsVisible: 0
   XPcrystal: {fileID: 1384570904514686497, guid: d6088fd87a74e2b4da92b8ade9666559, type: 3}
+  chest: {fileID: 282531931121204578, guid: 6fbc652cc66badf44a4abdafe5a86634, type: 3}
 --- !u!114 &5072117949922706947
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,9 +73,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  chanceChest: 0
+  isDead: 0
   healthIsVisible: 1
   XPcrystal: {fileID: 0}
-  startWeaponID: 3
+  chest: {fileID: 0}
+  startWeaponID: 1
   WeaponsList:
   - {fileID: 4162831861185725552}
   - {fileID: 3122892896936627353}
@@ -109,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WSDAKeys: 77000000730000006400000061000000
   ActionKey: 101
-  actionDistance: 3
+  actionDistance: 1
 --- !u!50 &4567604999581224117
 Rigidbody2D:
   serializedVersion: 4

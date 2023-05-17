@@ -5,13 +5,16 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeField] protected int maxHealth;
+    [SerializeField] protected int chanceChest;
     protected int health;
+    public bool isDead;
     [SerializeField] protected bool healthIsVisible;
     protected float barHeight = 11f;
     protected Color barColor = Color.green;
     protected int damage;
 
     public GameObject XPcrystal;
+    public GameObject chest;
 
     protected Animator an{ get{ return GetComponent<Animator>(); } }
 
@@ -49,13 +52,17 @@ public class Entity : MonoBehaviour
     {
         health -= inDamage;
         if (health <= 0){
+            isDead = true;
             an.SetTrigger("death");
         }
     }
 
     public void Die(){
         Destroy(gameObject);
-        dropXP();
+        if (XPcrystal)
+            dropXP();
+        if (chest)
+            dropChest();
     }
 
     private void dropXP() 
@@ -66,6 +73,14 @@ public class Entity : MonoBehaviour
             float pos_y = transform.position.y + Random.Range(1f, 2f);
             Vector2 pos = new Vector2(pos_x, pos_y);
             Instantiate(XPcrystal, pos, Quaternion.Euler(0,0,Random.Range(0,181)));
+        }
+    }
+
+    private void dropChest()
+    {
+        if(Random.Range(1, chanceChest) == 1)
+        {
+            Instantiate(chest, transform.position, Quaternion.Euler(0,0,0));
         }
     }
 }

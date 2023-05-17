@@ -20,7 +20,8 @@ public class Enemy : Entity
     private void Update()
     {
         Vector2 dir = player.transform.position - transform.position;
-        moveObj.MoveTo(dir.normalized);
+        if (!isDead)
+            moveObj.MoveTo(dir.normalized);
     }
 
 }
