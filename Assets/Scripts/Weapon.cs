@@ -12,14 +12,18 @@ public class Weapon : MonoBehaviour
     protected int damage;
     protected float cooldown;
 
-    public void LevelUp() 
+    public void LevelUp()
     {
-        gameObject.SetActive(true);
+
         level++;
         OtherValues();
         damage = DamageList[level];
         cooldown = CooldownList[level];
-        StartCoroutine(AttackTimer());
+        if (level == 1)
+        {
+            gameObject.SetActive(true);
+            StartCoroutine(AttackTimer());
+        }
     }
 
     public int GetLevel() 

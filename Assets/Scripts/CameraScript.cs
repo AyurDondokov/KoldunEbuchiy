@@ -21,16 +21,20 @@ public class CameraScript : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 temp = transform.position;
+        if (player)
+        {
+            Vector3 temp = transform.position;
 
-        if (player.position.x + CameraSizeX < Xmax &&
-                player.position.x - CameraSizeX > Xmin)
-            temp.x = player.position.x;
+            if (player.position.x + CameraSizeX < Xmax &&
+                    player.position.x - CameraSizeX > Xmin)
+                temp.x = player.position.x;
 
-        if (player.position.y + CameraSizeY < Ymax &&
-                player.position.y - CameraSizeY > Ymin)
-            temp.y = player.position.y;
-        
-        transform.position = temp;
+            if (player.position.y + CameraSizeY < Ymax &&
+                    player.position.y - CameraSizeY > Ymin)
+                temp.y = player.position.y;
+
+            transform.position = temp;
+
+        }
     }
 }
