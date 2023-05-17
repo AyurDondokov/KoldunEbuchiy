@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magnet : MonoBehaviour
+public class Magnet : MonoBehaviour
 {
     [SerializeField] float[] size;
 
