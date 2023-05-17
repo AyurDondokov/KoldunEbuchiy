@@ -24104,7 +24104,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -24187,6 +24187,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4567604999581224119, guid: f2ffcfbc3e0afa5479d30e4307d4d63d, type: 3}
+      propertyPath: xpBar
+      value: 
+      objectReference: {fileID: 1653201072}
     - target: {fileID: 4567604999581224124, guid: f2ffcfbc3e0afa5479d30e4307d4d63d, type: 3}
       propertyPath: m_Name
       value: Player
