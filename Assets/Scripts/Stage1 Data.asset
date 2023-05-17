@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stage1 Data
   m_EditorClassIdentifier: 
   stageEvent:
-  - time: 120
+  - stageEventType: 1
+    objectToSpawn: {fileID: 0}
+    time: 5
     lvl: 1
-  - time: 240
-    lvl: 2
