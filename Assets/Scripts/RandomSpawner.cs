@@ -21,13 +21,6 @@ public class RandomSpawner : MonoBehaviour
         StartCoroutine("SpawnEnemy");
     }
 
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0)){
-            StartCoroutine(SpawnEnemy());
-        }
-        
-    }
     IEnumerator SpawnEnemy()
     {
         while(true){

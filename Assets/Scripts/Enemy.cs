@@ -8,6 +8,11 @@ public class Enemy : Entity
 
     private MoveObject moveObj;
 
+    [SerializeField] float AttackDistance;
+    [SerializeField] float AttackCooldown;
+
+    private float currentAttackTime;
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -22,6 +27,18 @@ public class Enemy : Entity
         Vector2 dir = player.transform.position - transform.position;
         if (!isDead)
             moveObj.MoveTo(dir.normalized);
+
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+        if (distanceToPlayer <= AttackDistance)
+        {
+            if (currentAttackTime > AttackCooldown)
+            {
+                player.TakeDamage(damage);
+                currentAttackTime = 0;
+            }
+        else
+            currentAttackTime += Time.deltaTime;
+        }
     }
 
 }

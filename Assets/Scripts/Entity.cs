@@ -11,7 +11,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected bool healthIsVisible;
     protected float barHeight = 11f;
     protected Color barColor = Color.green;
-    protected int damage;
+    [SerializeField] protected int damage;
 
     public GameObject XPcrystal;
     public GameObject chest;
