@@ -330,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ebanushki presents...
+  m_text: CAD&A presents...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ea0a1ba18d84254ab5ef3fb2d9c1125, type: 2}
   m_sharedMaterial: {fileID: 8896915740843609899, guid: 7ea0a1ba18d84254ab5ef3fb2d9c1125, type: 2}

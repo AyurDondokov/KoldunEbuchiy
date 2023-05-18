@@ -12,13 +12,23 @@ public class Player : Entity
     [SerializeField] Image xpBar;
     [SerializeField] private UpgradeSystem upgradeSystem;
 
+    StageEventManager sEm;
+
     private void Start()
     {
+        sEm = FindObjectOfType<StageEventManager>();
         WeaponsList[startWeaponID].LevelUp();
         foreach (Weapon weapon in WeaponsList)
             weapon.gameObject.SetActive((weapon.GetLevel() > 0));
                 
         health = maxHealth;
+    }
+
+    public new void Die() 
+    {
+        Destroy(gameObject);
+        drop();
+        sEm.WinStage();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

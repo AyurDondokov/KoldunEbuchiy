@@ -14,7 +14,7 @@ public class StageEventManager : MonoBehaviour
     public void Awake(){
         stageTime = GetComponent<Timer>();
     }
-    private void WinStage()
+    public void WinStage()
     {
         Time.timeScale = 0;
         winPanel.SetActive(true);

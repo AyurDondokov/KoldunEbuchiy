@@ -67,7 +67,7 @@ public class Entity : MonoBehaviour
         drop();
     }
 
-    private void drop(){
+    protected void drop(){
         foreach(Item item in itemList){
             int Count = Random.Range(1, item.maxCount);
             if(Random.Range(1, item.chance) == 1){
